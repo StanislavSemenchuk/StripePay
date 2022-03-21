@@ -1,0 +1,6 @@
+1. Ask about Stripe account (create own or there is already created account and use it)
+2. Testing (is unit test are required)
+3. What exact functional should have library? (Authentefication, error handling, payouts, ect.)
+4. May I use Stripe.net nuget package?
+5. Should I make loging?
+6. Should I create a database whith tables whitch will store operation history?

@@ -5,20 +5,20 @@ namespace StripePay.Services.Billing;
 
 public interface IBillingService
 {
+    public Task<string> CheckoutAsync(SessionCreateOptions options);
 }
 
 public class BillingService : IBillingService
 {
-    private readonly PayoutService _payoutService;
     private readonly SessionService _sessionService;
-    public BillingService(PayoutService payoutService, SessionService sessionService)
+    public BillingService(SessionService sessionService)
     {
-        _payoutService = payoutService;
         _sessionService = sessionService;
     }
 
-    public async Task CheckoutAsync()
+    public async Task<string> CheckoutAsync(SessionCreateOptions options)
     {
-
+        var session = await _sessionService.CreateAsync(options);
+        return session.Id;
     }
 }

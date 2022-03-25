@@ -1,6 +1,18 @@
+As a test what I am thinking is, we currently have a working platform and want to integrate it with stripe payments, the payments should go through Stripe's free subscription for 14 days and then the customer is asked for credit card info and payment. Need a class library, along with web hooks for payments and updates. 
+1. Would you be able to do this? 
+2. And how much time/cost will it be? 
+3. What do you need to provide time estimate?
 1. Ask about Stripe account (create own or there is already created account and use it)
+
+Create your own test account.
 2. Testing (is unit test are required)
+You don’t need to create unit test.
 3. What exact functional should have library? (Authentefication, error handling, payouts, ect.)
+It is test (like POC). Don’t do extra features.
+You need to approve your application can remind our application (in this case your application) via hooks it is 14 days past after registration with unique id and every month request our hook when user made payment or cancel.
 4. May I use Stripe.net nuget package?
+You can use anything whatever you want unless it is free.
 5. Should I make loging?
+No need logging. It is proof of concept. Just proof it works. Later (if everything is okay) we will discuss other feature and what we need for our application.
 6. Should I create a database whith tables whitch will store operation history?
+It’s up to you. We just need to know which user payed, canceled and is late.

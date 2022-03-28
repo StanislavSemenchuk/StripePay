@@ -17,14 +17,11 @@ public class WebHookService : IWebHookService
     public async Task<WebhookEndpoint> CreateWebHookAsync(WebhookEndpointCreateOptions options)
     {
         var webhookEndpoint = new WebhookEndpoint();
-        if (await TryCreateWebHookAsync(options, webhookEndpoint))
-        {
-            return webhookEndpoint;
-        }
-        else 
+        if (!await TryCreateWebHookAsync(options, webhookEndpoint))
         {
             throw new InvalidOperationException(webhookEndpoint.StripeResponse.Content);
         }
+        return webhookEndpoint;
     }
     private async Task<bool> TryCreateWebHookAsync(WebhookEndpointCreateOptions options, WebhookEndpoint webhookEndpoint)
     {

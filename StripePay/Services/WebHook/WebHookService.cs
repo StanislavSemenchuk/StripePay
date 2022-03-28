@@ -1,5 +1,4 @@
 ﻿using Stripe;
-using DotNetEnv;
 
 namespace StripePay.Services.WebHook;
 
